@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jverdu-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 16:53:35 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/01/17 16:53:37 by jverdu-r         ###   ########.fr       */
+/*   Created: 2024/01/17 16:55:34 by jverdu-r          #+#    #+#             */
+/*   Updated: 2024/01/17 16:55:35 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,18 @@
 ClapTrap::ClapTrap(void)
 {
     std::cout << "new ClapTrap unit has arrived." << std::endl;
-    this->hit_points = 10;
-    this->energy_points = 10;
-    this->attack_damage = 0;
+    this->name = "Cl4tp";
+    this->setHp(10);
+    this->setEp(10);
+    this->setAd(0);
 }
 
 ClapTrap::ClapTrap(std::string name)
 {
-    this->name = name;
-    this->hit_points = 10;
-    this->energy_points = 10;
-    this->attack_damage = 0;
+    this->setName(name);
+    this->setHp(10);
+    this->setEp(10);
+    this->setAd(0);
     std::cout << "new ClapTrap unit named " << this->name << " arrived." << std::endl;
 }
 
@@ -46,19 +47,19 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &cl4tp)
 
 ClapTrap::~ClapTrap(void)
 {
-    std::cout << this->name << " is dead." << std::endl;
+    std::cout << "ClapTrap " << this->name << " is dead." << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
 {
     if (this->energy_points <= 0)
     {
-        std::cout << this->name << " try to attack but his energy level is too low." << std::endl;
+        std::cout << "ClapTrap " << this->name << " try to attack but his energy level is too low." << std::endl;
     }
     else
     {
         this->energy_points--;
-        std::cout << this->name << " attacks " << target << " causing " << this->attack_damage << " damage!." << std::endl;
+        std::cout << "ClapTrap " << this->name << " attacks " << target << " causing " << this->attack_damage << " damage!." << std::endl;
     }
 }
 
@@ -89,4 +90,41 @@ void ClapTrap::beRepaired(unsigned int amount)
         }
         std::cout << this->name << " has repaired himself for " << amount << " hit points! and his health is now " << this->hit_points << "." << std::endl;
     }
+}
+
+void ClapTrap::setName(std::string name)
+{
+    std::cout << "Unnamed ClapTrap has taken " << name << " as name." <<std::endl;
+    this->name = name;
+}
+
+void ClapTrap::setHp(int hp)
+{
+    this->hit_points = hp;
+}
+void ClapTrap::setEp(int ep)
+{
+    this->energy_points = ep;
+}
+void ClapTrap::setAd(int ad)
+{
+    this->attack_damage = ad;
+}
+
+std::string ClapTrap::getName(void)
+{
+    return(this->name);
+}
+
+int ClapTrap::getHp(void)
+{
+    return(this->hit_points);
+}
+int ClapTrap::getEp(void)
+{
+    return(this->energy_points);
+}
+int ClapTrap::getAd(void)
+{
+    return(this->attack_damage);
 }

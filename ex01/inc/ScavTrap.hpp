@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jverdu-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 16:53:22 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/01/17 16:53:24 by jverdu-r         ###   ########.fr       */
+/*   Created: 2024/01/17 16:54:17 by jverdu-r          #+#    #+#             */
+/*   Updated: 2024/01/17 16:54:18 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-#define CLAPTRAP_HPP
-#include <iostream>
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
+#include "ClapTrap.hpp"
 
-class ClapTrap
+class ScavTrap : public ClapTrap
 {
     public:
-        ClapTrap(void);
-        ClapTrap(const ClapTrap &cl4tp);
-        ClapTrap &operator=(const ClapTrap &cl4tp);
-        ClapTrap(std::string name);
-        ~ClapTrap(void);
+        ScavTrap(void);
+        ScavTrap(const ScavTrap &cl4tp);
+        ScavTrap &operator=(const ScavTrap &cl4tp);
+        ScavTrap(std::string name);
+        ~ScavTrap(void);
         void attack(const std::string& target);
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
-    private:
-        std::string name;
-        int hit_points;
-        int energy_points;
-        int attack_damage;
+        void guardGate(void);
+        void setName(std::string name);
 };
 
 #endif
