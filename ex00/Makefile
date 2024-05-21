@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jverdu-r <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 16:53:53 by jverdu-r          #+#    #+#              #
-#    Updated: 2024/01/17 16:53:55 by jverdu-r         ###   ########.fr        #
+#    Updated: 2024/05/21 18:12:36 by jverdu-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CXX = g++
+CXX = c++
 
-CXXFLAGS = -std=c++98 -Wall -Werror -Wextra
+CXXFLAGS = -std=c++98 -Wall -Werror -Wextra -fsanitize=address -g3
 
 SRC = src/ClapTrap.cpp \
 	  src/main.cpp
